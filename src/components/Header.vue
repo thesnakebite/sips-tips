@@ -70,6 +70,13 @@
                         class="bg-white p-3 w-full focus:outline-none rounded-lg shadow focus:ring-2 focus:ring-orange-500 transition duration-1000"
                     >
                         <option value="">-- Seleccione --</option>
+                        <option
+                            v-for="categoria in store.categorias"
+                            :key="categoria.strCategory"
+                            :value="categoria.strCategory"
+                        >
+                            {{ categoria.strCategory }}
+                        </option>
                     </select>
                 </div>
                 <input
