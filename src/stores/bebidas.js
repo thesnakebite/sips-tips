@@ -9,14 +9,21 @@ export const useBebidasStore = defineStore('bebidas', () => {
         categoria: '',
     })
 
+    const recetas = ref([])
+
     onMounted( async () => {
         const { data: {drinks} } = await APIService.obtenerCategorias()
         categorias.value = drinks
     })
 
-    function obtenerRecetas() {
-        console.log('Consultando API....')
+    async function obtenerRecetas() {
+        const { data: {drinks} } = await APIService.buscarRecetas(busqueda)
+        recetas.value = drinks
     }
+
+    // La diferencia entre reactive y ref es que reactive se utiliza para crear un objeto reactivo que puede contener múltiples propiedades, mientras que ref se utiliza para crear una referencia reactiva a un valor único. 
+    // En este caso, declaramos busqueda como reactive porque contiene múltiples propiedades (nombre y categoria) que queremos que sean reactivas. 
+    // Por otro lado, recetas se declara como ref porque es una referencia a un solo valor (la lista de recetas) que se puede actualizar, pero no necesita ser un objeto con múltiples propiedades.
 
     return {
         categorias,
