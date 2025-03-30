@@ -5,10 +5,12 @@
 
     const route = useRoute()
     const store = useBebidasStore()
-    console.log(store.categorias)
-    
-
     const paginaInicio = computed( () => route.name === 'inicio')
+
+    const handleSubmit = () => {
+        // TODO: Validar formulario
+        store.obtenerRecetas()
+    }
 </script>
 
 <template>
@@ -47,6 +49,7 @@
             <form
                 v-if="paginaInicio"
                 class="md:w-1/2 2xl:w-1/3 bg-gradient-to-r from-orange-400 to-yellow-400 my-32 p-10 rounded-lg shadow transition-transform transform hover:scale-102 space-y-6"
+                @submit.prevent="handleSubmit"
             >
                 <div class="space-y-4">
                     <label

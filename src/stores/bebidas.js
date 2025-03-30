@@ -9,7 +9,6 @@ export const useBebidasStore = defineStore('bebidas', () => {
         categoria: '',
     })
 
-
     onMounted( async () => {
         const url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'
 
@@ -17,8 +16,13 @@ export const useBebidasStore = defineStore('bebidas', () => {
         categorias.value = drinks
     })
 
+    function obtenerRecetas() {
+        console.log('Consultando API....')
+    }
+
     return {
         categorias,
         busqueda,
+        obtenerRecetas,
     }
 })
