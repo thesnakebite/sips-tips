@@ -58,6 +58,7 @@
                         type="text"
                         class="bg-white p-3 w-full focus:outline-none rounded-lg shadow focus:ring-2 focus:ring-orange-500 transition duration-1000"
                         placeholder="Nombre o Ingrediente: ej. Vodka, Tequila, etc."
+                        v-model="store.busqueda.nombre"
                     >
                 </div>
                 <div class="space-y-4">
@@ -68,6 +69,7 @@
                     <select
                         id="categoria"
                         class="bg-white p-3 w-full focus:outline-none rounded-lg shadow focus:ring-2 focus:ring-orange-500 transition duration-1000"
+                        v-model="store.busqueda.categoria"
                     >
                         <option value="">-- Seleccione --</option>
                         <option
