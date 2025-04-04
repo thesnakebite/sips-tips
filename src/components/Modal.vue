@@ -17,7 +17,7 @@
         as="template" 
         :show="modal.modal"
     >
-        <Dialog as="div" class="relative z-10">
+        <Dialog as="div" class="relative z-10" @close="modal.handleClickModal()">
             <TransitionChild 
                 as="template"  
                 enter="ease-out duration-300" 
@@ -45,7 +45,13 @@
                                 <div class="mt-3"></div>
                             </div>
                             <div class="mt-5 sm:mt-6 flex justify-between gap-4">
-
+                                <button
+                                    type="button"
+                                    class="w-full rounded bg-gray-600 p-3 font-bold uppercase text-white shadow hover:bg-gray-500 transition-all ease-out cursor-pointer"
+                                    @click="modal.handleClickModal()"
+                                >
+                                    Cerrar
+                                </button>
                             </div> 
                         </DialogPanel>
                     </TransitionChild>
