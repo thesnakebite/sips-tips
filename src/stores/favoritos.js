@@ -21,6 +21,10 @@ export const useFavoritosStore = defineStore('favoritos', () => {
         favoritos.value.push(bebida.receta)
     }
 
+    onMounted( () => {
+        favoritos.value = JSON.parse(localStorage.getItem('favoritos')) ?? []
+    })
+
     return {
         favoritos,
         handleClickFavorito,
