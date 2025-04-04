@@ -9,9 +9,11 @@
     } from '@headlessui/vue'
     import { useModalStore } from '@/stores/modal'
     import { useBebidasStore } from '@/stores/bebidas'
+    import { useFavoritosStore } from '@/stores/favoritos'
 
     const modal = useModalStore()
     const bebidas = useBebidasStore()
+    const favoritos = useFavoritosStore()
 
     const formatearIngredientes = () => {
         const ingredientesDiv = document.createElement('DIV')
@@ -95,6 +97,14 @@
                                     @click="modal.handleClickModal()"
                                 >
                                     Cerrar
+                                </button>
+
+                                <button 
+                                    type="button" 
+                                    class="w-full rounded bg-orange-600 p-3 font-bold uppercase text-white shadow hover:bg-orange-500 transition-all ease-out cursor-pointer"
+                                    @click="favoritos.handleClickFavorito()"
+                                >
+                                    Agregar a favoritos
                                 </button>
                             </div> 
                         </DialogPanel>
