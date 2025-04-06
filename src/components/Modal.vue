@@ -104,7 +104,7 @@
                                     class="w-full rounded bg-orange-600 p-3 font-bold uppercase text-white shadow hover:bg-orange-500 transition-all ease-out cursor-pointer"
                                     @click="favoritos.handleClickFavorito()"
                                 >
-                                    Agregar a favoritos
+                                    {{ modal.textoBoton }}
                                 </button>
                             </div> 
                         </DialogPanel>
