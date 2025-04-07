@@ -1,10 +1,12 @@
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { useBebidasStore } from './bebidas'
+import { useModalStore } from './modal'
 
 export const useFavoritosStore = defineStore('favoritos', () => {
 
     const bebida = useBebidasStore()
+    const modal = useModalStore()
     const favoritos = ref([])
 
     const sincronizarLocalStorage = () => {
@@ -29,8 +31,9 @@ export const useFavoritosStore = defineStore('favoritos', () => {
         if (existeFavorito()) {
             eliminarFavoritos()
         } else {
-            agregarFavoritos()   
+            agregarFavoritos()
         }
+        modal.modal = false
     }
 
     watch(favoritos, () => {
@@ -43,9 +46,12 @@ export const useFavoritosStore = defineStore('favoritos', () => {
         favoritos.value = JSON.parse(localStorage.getItem('favoritos')) ?? []
     })
 
+    const noFavoritos = computed( () => favoritos.value.length === 0)
+
     return {
         favoritos,
         handleClickFavorito,
         existeFavorito,
+        noFavoritos,
     }
 })
