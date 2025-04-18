@@ -2,11 +2,13 @@ import { ref, watch, onMounted, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { useBebidasStore } from './bebidas'
 import { useModalStore } from './modal'
+import { useNotificacionesStore } from './notificaciones'
 
 export const useFavoritosStore = defineStore('favoritos', () => {
 
     const bebida = useBebidasStore()
     const modal = useModalStore()
+    const notificaciones = useNotificacionesStore()
     const favoritos = ref([])
 
     const sincronizarLocalStorage = () => {
@@ -21,6 +23,9 @@ export const useFavoritosStore = defineStore('favoritos', () => {
 
     function agregarFavoritos() {
         favoritos.value.push(bebida.receta)
+
+        notificaciones.mostrar = true
+        notificaciones.texto = 'Se agregó a favoritos'
     }
 
     function eliminarFavoritos() {
