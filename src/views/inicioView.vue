@@ -1,6 +1,6 @@
 <script setup>
     import Receta from '@/components/Receta.vue'
-    import { useBebidasStore } from '@/stores/bebidas'
+    import { useBebidasStore } from '../stores/bebidas'
 
     const bebidas = useBebidasStore()
 </script>
@@ -12,7 +12,7 @@
         v-if="bebidas.noRecetas"
         class="my-10 text-center text-2xl"
     >
-        No hay Resultados, utiliza el formulaio para buscar recetas.
+        No hay Resultados, utiliza el formulario para buscar recetas.
     </p>
 
     <div v-else class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 my-10 gap-10">

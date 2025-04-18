@@ -32,9 +32,7 @@ export const useBebidasStore = defineStore('bebidas', () => {
         modal.handleClickModal()
     }
 
-    const noRecetas = ( () => {
-        recetas.value.length === 0
-    })
+    const noRecetas = computed( () => recetas.value.length === 0)
 
     // La diferencia entre reactive y ref es que reactive se utiliza para crear un objeto reactivo que puede contener múltiples propiedades, mientras que ref se utiliza para crear una referencia reactiva a un valor único. 
     // En este caso, declaramos busqueda como reactive porque contiene múltiples propiedades (nombre y categoria) que queremos que sean reactivas. 
