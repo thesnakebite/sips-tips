@@ -18,7 +18,6 @@
                 mostrar: true,
                 error: true,
             })
-
             return
         }
         store.obtenerRecetas()
