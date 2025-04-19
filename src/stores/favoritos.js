@@ -26,10 +26,6 @@ export const useFavoritosStore = defineStore('favoritos', () => {
 
         notificaciones.mostrar = true
         notificaciones.texto = 'Se agregó a favoritos'
-
-        setTimeout( () => {
-            notificaciones.$reset()
-        }, 3000)
     }
 
     function eliminarFavoritos() {
@@ -37,10 +33,6 @@ export const useFavoritosStore = defineStore('favoritos', () => {
 
         notificaciones.mostrar = true
         notificaciones.texto = 'Eliminado de favoritos'
-
-        setTimeout( () => {
-            notificaciones.$reset()
-        }, 3000)
     }
 
     const handleClickFavorito = () => {
