@@ -54,6 +54,14 @@
                     >
                         Favoritos
                     </RouterLink>
+
+                    <RouterLink
+                      :to="{name: 'ia'}"
+                      class="uppercase font-bold"
+                      active-class="text-orange-500"
+                    >
+                        Generar con IA
+                    </RouterLink>
                 </nav>
             </div>
 
