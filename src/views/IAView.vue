@@ -1,7 +1,22 @@
 <script setup>
     import { useIAStore } from '@/stores/ia'
+    import { useNotificacionesStore } from '@/stores/notificaciones'
 
+    const notificacion = useNotificacionesStore()
     const store = useIAStore()
+
+    const handleSubmit = () => {
+        if(store.prompt.trim() === '') {
+            notificacion.$patch({
+                texto: 'La búsqueda no puede ir vacía',
+                mostrar: true,
+                error: true,
+            })
+            return
+        }
+
+        store.generarReceta()
+    }
 </script>
 
 <template>
@@ -10,6 +25,7 @@
     <div class="max-w-4xl mx-auto">
         <form  
             class='flex flex-col space-y-3 py-10'
+            @submit.prevent="handleSubmit"
         >
             <div class="relative">
                 <input 
