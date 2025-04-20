@@ -1,5 +1,7 @@
 <script setup>
-  
+    import { useIAStore } from '@/stores/ia'
+
+    const store = useIAStore()
 </script>
 
 <template>
@@ -13,6 +15,7 @@
                 <input 
                     name="prompt" 
                     id="prompt" 
+                    v-model="store.prompt"
                     class="border bg-white p-4 rounded-lg w-full border-slate-800" 
                     placeholder="Genera una receta con ingredientes. Ej. Bebida con Tequila y Fresa"
                 />
