@@ -58,6 +58,8 @@
             </div>
         </form>
 
-        <div class="py-10 whitespace-pre-wrap"></div>
+        <div class="py-10 whitespace-pre-wrap">
+            {{ store.respuesta }}
+        </div>
     </div>
 </template>
