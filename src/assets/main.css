@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+@layer utilities {
+    .animate-pulse-slow {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-bounce-slow {
+        animation: bounce 2s infinite;
+    }
+
+    .animate-typing {
+        animation: typing 2s ease-out forwards;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    @keyframes typing {
+        from { 
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: .5;
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(-25%);
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+            transform: translateY(0);
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
+}
